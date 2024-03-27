@@ -8,6 +8,24 @@ body{
 a{
     text-decoration: none;
 }
+a:link{
+    color:  cyan;
+    text-shadow: 5px 5px 5px #004D98;
+}
+a:visited{
+    color: purple;
+    text-shadow: 5px 5px 5px rgb(75, 23, 75);
+}
+a:hover{
+    color: red;
+    text-decoration: underline;
+    background: linear-gradient(to left,#004D98,#A50044,#004D98,#A50044,#004D98,#A50044,#004D98,#A50044,#004D98,#A50044,#004D98,#A50044,#004D98,#A50044,#004D98,#A50044,#004D98,#A50044);
+    text-shadow: 5px 5px 5px rgb(173, 36, 36);
+}
+a:active{
+    color: black;
+    opacity: 0.3;
+}
 
 main{
     font-size: 14pt;
