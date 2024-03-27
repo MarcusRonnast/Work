@@ -28,7 +28,19 @@ a:active{
     color: black;
     opacity: 0.3;
 }
-
+h1.menu{
+    text-align: center;
+}
+div.menu{
+    border: 7px solid #00606480;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+}
+div.menu:hover{
+    background-color: #ffffff30;
+    box-shadow: 0 0 15px #00000030;
+}
 main{
     font-size: 14pt;
     
