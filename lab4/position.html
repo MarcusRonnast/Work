@@ -25,7 +25,20 @@
             z-index: -1;
         }
         .position-relative:hover{
-            z-index: 2;
+            z-index: 3;
+        }
+        .position-absolute{
+            position: absolute;
+            left: 300px;
+    
+        }
+        .position-absolute:hover{
+            width: 350px;
+            height: 90px;
+            transition: 0.3s;
+            background-color:aquamarine;
+            text-shadow: 5px 5px 5px;
+            font-size: larger;
         }
     </style>
 </head>
@@ -39,7 +52,7 @@
         <div class="position-relative">relative</div>
         <div>static</div>
         <div>static</div>
-        <div>static</div>
+        <div class="position-absolute">absolute</div>
         <div>static</div>
         <div>static</div>
         <div>static</div>
