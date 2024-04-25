@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png">
+        <link rel="shortcut icon" href="../favicon-32x32.png">
+        <script>
+            function showSum() {
+                let a = 5154;
+                let b = 7891;
+                let result = a+b;
+                alert('Сумма ' + a + ' и ' + b + ' равна '+result);
+            }
+        </script>
+        <style>
+            .message{
+                height: 25px;
+                width: 300px;
+                background-color: greenyellow;
+                color: red;
+                border: 2px gray;
+                display: inline-block;
+                margin: auto;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 4
+        </header>
+        <main>
+            <div class="message" onclick="showSum()">Сколько будет 5154+7891?</div>
+            <div class="message">Узнать, кто автор страницы</div>
+        </main>
+        <footer>
+            &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
+        </footer>
+        
+    </body>
+</html>
