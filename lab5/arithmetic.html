@@ -10,10 +10,21 @@
         <link rel="shortcut icon" href="../favicon-32x32.png">
         <script>
             function showSum() {
-                let a = 5154;
-                let b = 7891;
+                let inputA = document.getElementById('numberA')
+                let inputB = document.getElementById('numberB')
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
                 let result = a+b;
                 alert('Сумма ' + a + ' и ' + b + ' равна '+result);
+            }
+            function showAuthor() {
+                let author = 'Автор страницы:\nЧернышов Марк Сергеевич';
+                alert(author);
+                
+            }
+            function showGreeting() {
+                let greeting = 'Я уже говорил тебе, что такое безумие?\nБезумие — это точное повторение одного и того же действия раз за разом в надежде на изменение.\nЭто. Есть. Безумие!'
+                alert(greeting);
             }
         </script>
         <style>
@@ -31,16 +42,18 @@
         </style>
     </head>
     <body>
-        <header>
-            НГТУ, ФБ, Лабораторная работа 4
+        <header onclick="showAuthor()" style="cursor: pointer">
+            НГТУ, ФБ, Лабораторная работа 5
         </header>
         <main>
-            <div class="message" onclick="showSum()">Сколько будет 5154+7891?</div>
-            <div class="message">Узнать, кто автор страницы</div>
+            <label>Первое число:<input type="number" value="5154" id="numberA"></label><br>
+            <label>Второе число:<input type="number" value="7891" id="numberB"></label><br>
+            <div class="message" onclick="showSum()">Найти сумму чисел</div>
+            <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
         </main>
-        <footer>
+        <footer ondblclick="showGreeting()" style="cursor: pointer">
             &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
-        </footer>
+        </footer >
         
     </body>
 </html>
