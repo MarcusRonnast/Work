@@ -26,6 +26,32 @@
                 let greeting = 'Я уже говорил тебе, что такое безумие?\nБезумие — это точное повторение одного и того же действия раз за разом в надежде на изменение.\nЭто. Есть. Безумие!'
                 alert(greeting);
             }
+            function showDiff(){
+                let inputA = document.getElementById('numberA')
+                let inputB = document.getElementById('numberB')
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
+                let result1 = a-b;
+                let result2 = b-a;
+                alert('Разность ' + a + ' и ' + b + ' равна '+result1+'\nРазность '+ b +' и '+ a +' равна '+result2);
+            }
+            function showMulti(){
+                let inputA = document.getElementById('numberA')
+                let inputB = document.getElementById('numberB')
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
+                let result = a*b;
+                alert('Произведение ' + a + ' и ' + b + ' равно '+result);
+            }
+            function showDiv(){
+                let inputA = document.getElementById('numberA')
+                let inputB = document.getElementById('numberB')
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
+                let result1 = a/b;
+                let result2 = b/a;
+                alert('Деление ' + a + ' на ' + b + ' равно '+result1+'\nДеление ' + b + ' на ' + a + ' равно '+result2);
+            }
         </script>
         <style>
             .message{
@@ -35,7 +61,7 @@
                 color: red;
                 border: 2px gray;
                 display: inline-block;
-                margin: auto;
+                margin: 2px;
                 border-radius: 5px;
                 cursor: pointer;
             }
@@ -50,6 +76,9 @@
             <label>Второе число:<input type="number" value="7891" id="numberB"></label><br>
             <div class="message" onclick="showSum()">Найти сумму чисел</div>
             <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+            <div class="message" onclick="showDiff()">Найти разность чисел</div>
+            <div class="message" onclick="showMulti()">Найти произведение</div>
+            <div class="message" onclick="showDiv()">Найти деление</div>
         </main>
         <footer ondblclick="showGreeting()" style="cursor: pointer">
             &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
