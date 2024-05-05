@@ -51,7 +51,14 @@
                 let result1 = a/b;
                 let result2 = b/a;
                 alert('Деление ' + a + ' на ' + b + ' равно '+result1+'\nДеление ' + b + ' на ' + a + ' равно '+result2);
-            }
+             }
+            function changeOutput(buttonNum, BackColor, textColor, borderStyle){
+                let output = document.getElementById('output');
+                output.innerHTML = 'Нажата кнопка '+ buttonNum;
+                output.style.backgroundColor = BackColor;
+                output.style.color = textColor;
+                output.style.border = borderStyle;
+            }  
         </script>
         <style>
             .message{
@@ -64,6 +71,11 @@
                 margin: 2px;
                 border-radius: 5px;
                 cursor: pointer;
+            }
+            #output{
+                border: 1px solid;
+                width: 300px;
+                height: 40px;
             }
         </style>
     </head>
@@ -79,10 +91,17 @@
             <div class="message" onclick="showDiff()">Найти разность чисел</div>
             <div class="message" onclick="showMulti()">Найти произведение</div>
             <div class="message" onclick="showDiv()">Найти деление</div>
+            <div>
+                <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'red', 'yellow', '2px solid black')">
+                <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'lime', '5px dashed yellow')">
+                <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'orange', 'black', '3px dotted green')">
+                <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'blue', 'while', '1px ridge purple')">
+            </div>
+
+            <div id="output"></div>
         </main>
         <footer ondblclick="showGreeting()" style="cursor: pointer">
             &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
         </footer >
-        
     </body>
 </html>
