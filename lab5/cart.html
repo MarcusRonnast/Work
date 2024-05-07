@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png">
+        <link rel="shortcut icon" href="../favicon-32x32.png">
+        <title>Чернышов Марк Сергеевич. Корзина</title>
+        <script>
+            function calculateTotal() {
+            let item1 = document.getElementById("item1").value * 100;
+            let item2 = document.getElementById("item2").value * 80;
+            let item3 = document.getElementById("item3").value * 150;
+            let item4 = document.getElementById("item4").value * 300;
+
+            let total = item1 + item2 + item3 + item4;
+            document.getElementById("total").textContent = `Общая сумма к оплате: ${total} руб.`;
+        }
+
+        function clearCart() {
+            document.getElementById("item1").value = 0;
+            document.getElementById("item2").value = 0;
+            document.getElementById("item3").value = 0;
+            document.getElementById("item4").value = 0;
+            document.getElementById("total").textContent = "";
+        }
+        </script>
+        <style>
+            .item {
+            height: 400px;
+            width: 300px;
+            border: 2px solid rgb(131, 16, 16);
+            text-align: center;
+            margin: 0 auto;
+            border-radius: 5%;
+            color: rgb(131, 16, 16);
+            }
+            
+        </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 5
+        </header>
+        <main class="item">
+                
+            <div id="cart">
+                <h1>Корзина товаров</h1>
+                <div>
+                    <label for="item1">Яблоки (100 р/шт)</label>
+                    <input type="number" id="item1" placeholder="Самое то для шарлотки" min="0">
+                </div>
+                <div>
+                    <label for="item2">Груши (80 р/шт)</label>
+                    <input type="number" id="item2" placeholder="Груши очень спелые" min="0">
+                </div>
+                <div>
+                    <label for="item3">Апельсины (150 р/шт)</label>
+                    <input type="number" id="item3" placeholder="Нужны апельсины" min="0">
+                </div>
+                <div>
+                    <label for="item4">Дыни (300 р/шт)</label>
+                    <input type="number" id="item4" placeholder="Сколько дынек?" min="0">
+                </div>
+            </div>
+            <button onclick="calculateTotal()">Рассчитать</button>
+            <button onclick="clearCart()">Очистить</button>
+            <p id="total"></p>
+        </main>
+        <footer>
+            &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
+        </footer>
+    </body>
+</html>
