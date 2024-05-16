@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Чернышов Марк Сергеевич. Круги</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png">
+        <link rel="shortcut icon" href="../favicon-32x32.png">
+        <style>
+            .circle {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                color: black;
+                display: inline-block;
+                position: absolute;
+                margin: 10px;
+                text-align: center;
+                line-height: 100px;
+                font-size: 24px;
+                cursor: pointer;
+                transition: all 0.5s ease;
+                font-size: 30px;
+            }
+        </style>
+        <script>
+            function disappear(element) {
+                element.style.opacity = '0';
+                element.style.width = '0';
+                element.style.height = '0';
+            }
+
+            function reappear(element) {
+                element.style.opacity = '1';
+                element.style.width = '100px';
+                element.style.height = '100px';
+            }
+
+            function resetCircles() {
+                const circles = document.querySelectorAll('.circle');
+                circles.forEach(circle => reappear(circle));
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 5
+        </header>
+        <main>
+            <div>
+                <div onclick="disappear(this)" class="circle" style="background-color: red; left: 900px; top: 250px;">1</div>
+                <div onclick="disappear(this)" class="circle" style="background-color: blue; left: 300px; top: 200px;">2</div>
+                <div onclick="disappear(this)" class="circle" style="background-color: green; left: 250px; top: 350px">3</div>
+                <div onclick="disappear(this)" class="circle" style="background-color: yellow; left: 10px; top: 400px;">4</div>
+                <div onclick="disappear(this)" class="circle" style="background-color: orange; left: 600px; top: 350px;">5</div>
+                <div onclick="disappear(this)" class="circle" style="background-color: purple; left: 350px; top: 50px;">6</div>
+                <div onclick="disappear(this)" class="circle" style="background-color: pink; left: 450px; top: 300px;">7</div>
+                <div onclick="disappear(this)" class="circle" style="background-color: cyan; left: 200px; top: 100px;">8</div>
+                <div onclick="disappear(this)" class="circle" style="background-color: brown; left: 800px; top: 50px;">9</div>
+                <div onclick="disappear(this)" class="circle" style="background-color: gray; left: 1250px; top: 450px;">10</div>
+            </div>
+            <button onclick="resetCircles()">Сбросить</button>
+        </main>
+        <footer>
+            &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
+        </footer>
+    </body>
+</html>
