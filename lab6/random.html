@@ -17,6 +17,16 @@
                 text-align: center;
                 width: 450px;
             }
+            .rules{
+                border: 2px solid #006064;
+                border-radius: 50px;
+                padding: 10px;
+                margin: 18px auto;
+                text-align: center;
+                width: 450px;
+                background-color: rgb(252, 124, 74);
+                color: #006064;
+            }
         </style>
         <script>
             let number;
@@ -62,6 +72,16 @@
                 screens[2].style.display = 'none';
                 startGame();
             }
+            function openRules() {
+                let screens = document.getElementsByClassName('rules');
+                screens[0].style.display = 'none';
+                screens[1].style.display = 'block';
+            }
+            function rules() {
+                let screens = document.getElementsByClassName('rules');
+                screens[0].style.display = 'block';
+                screens[1].style.display = 'none';
+            }
         </script>
     </head>
     <body>
@@ -94,6 +114,34 @@
                 <div>
                     <button onclick="again()">Сыграть ещё раз</button>
                 </div>
+            </div>
+            <div class="rules">
+                <button onclick="openRules()">
+                    Показать правила игры
+                </button>
+            </div>
+            <div class="rules" style="width: 600px; display: none;">
+                <button onclick="rules()">
+                    Скрыть правила игры
+                </button>
+                <p>
+                    1. Сначала нажмите на кнопку "Сыграть в игру"
+                </p>
+                <p>
+                    2. Введите число от 1 до 100
+                </p>
+                <p>
+                    3. Если ваше число меньше загаданного, появится надпись: "Вы ввели слишком маленькое число"
+                </p>
+                <p>
+                    4. Если ваше число больше загаданного, появится надпись: "Вы ввели слишком большое число"
+                </p>
+                <p>
+                    5. После введения правильного числа вы получите информацию о том сколько попыток у вас ушло, чтобы победить
+                </p>
+                <p>
+                    6. Для повторной игры нажмите на кнопку "Сыграть ещё раз"
+                </p>       
             </div>
         </main>
         <footer>
