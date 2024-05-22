@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Чернышов Марк Сергеевич. Перебор цветов</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png">
+        <link rel="shortcut icon" href="../favicon-32x32.png">
+        <style>
+            .colors{
+                background-color: yellow;
+                width: 400px;
+                height: 100px;
+                color: blue;
+                transition: background-color 0.5s ease, color 0.5s ease;
+            }
+        </style>
+        <script>
+            function changeColor(div) {
+                if(div.style.backgroundColor == 'yellow') {
+                    div.style.backgroundColor = 'red';
+                    div.style.color = 'green';
+                    document.getElementById('color-name').innerHTML = 'красный';
+                }
+                else if(div.style.backgroundColor == 'red') {
+                    div.style.backgroundColor = 'black';
+                    div.style.color = 'white';
+                    document.getElementById('color-name').innerHTML = 'чёрный';
+                }
+                else if(div.style.backgroundColor == 'black'){
+                    div.style.backgroundColor = 'green';
+                    div.style.color = 'red';
+                    document.getElementById('color-name').innerHTML = 'зелёный';
+                }
+                else if(div.style.backgroundColor == 'green') {
+                    div.style.backgroundColor = 'purple';
+                    div.style.color = 'yellow';
+                    document.getElementById('color-name').innerHTML = 'фиолетовый';
+                }
+                else {
+                    div.style.backgroundColor = 'yellow';
+                    document.getElementById('color-name').innerHTML = 'желтый';
+                    div.style.color = 'blue';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 6
+        </header>
+        <main>
+            <div class="colors" ondblclick="changeColor(this)" style="cursor: pointer">
+                Цвет: <span id="color-name">желтый</span><br>
+                Сделайте двойной шелчок, чтобы сменить цвет.
+            </div>
+        </main>
+        <footer>
+            &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
+        </footer>
+    </body>
+</html>
