@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Чернышов Марк Сергеевич. Корзина товаров</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png">
+        <link rel="shortcut icon" href="../favicon-32x32.png">
+        <script>
+            function calculateTotal() {
+                let balance = parseFloat(document.getElementById('balance').value);
+                let quantities = document.getElementsByClassName('quantity');
+                let total = 0;
+                let itemsSelected = false;
+                let errorMessages = [];
+        
+                for (let i = 0; i < quantities.length; i++) {
+                    let quantity = quantities[i].value;
+                    let price = parseFloat(quantities[i].getAttribute('data-price'));
+        
+                    if (quantity) {
+                        let qty = parseFloat(quantity);
+                        if (qty < 0) {
+                            errorMessages.push('Количество товара не может быть отрицательным.');
+                            continue;
+                        }
+                        total += qty * price;
+                        itemsSelected = true;
+                    }
+                }
+        
+                let resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = '';
+        
+                if (!itemsSelected) {
+                    resultDiv.innerHTML = '<p class="error">Нужно выбрать хотя бы один товар.</p>';
+                } else if (errorMessages.length > 0) {
+                    resultDiv.innerHTML = '<p class="error">' + errorMessages.join('<br>') + '</p>';
+                } else if (total > balance) {
+                    resultDiv.innerHTML = 'Итого: ' + total + ' р<br><p class="error">У вас недостаточно денег!</p>';
+                } else {
+                    resultDiv.innerHTML = '<p class="success">Итого: ' + total + ' р<br>Товар успешно оформлен!</p>';
+                }
+            }
+        </script>
+         <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            table {
+                width: 500px;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #555;
+                padding: 10px;
+                text-align: left;
+            }
+            th {
+                background-color: #f4f4f4;
+            }
+            .error {
+                color: red;
+                font-weight: bold;
+            }
+            .success {
+                color: green;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 6
+        </header>
+        <main>
+            <div style="margin: 0 auto;">
+                <h2>Корзина товаров</h2>
+
+                <div>
+                    Мой баланс:
+                    <input type="number" id="balance" value="100"><br><br>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Цена</th>
+                            <th>Количество</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Молоко</td>
+                            <td>90 р</td>
+                            <td><input type="number" class="quantity" data-price="90"></td>
+                        </tr>
+                        <tr>
+                            <td>Хлеб белый</td>
+                            <td>50 р</td>
+                            <td><input type="number" class="quantity" data-price="50"></td>
+                        </tr>
+                        <tr>
+                            <td>Масло, 200 гр</td>
+                            <td>150 р</td>
+                            <td><input type="number" class="quantity" data-price="150"></td>
+                        </tr>
+                        <tr>
+                            <td>Яйца</td>
+                            <td>60 р</td>
+                            <td><input type="number" class="quantity" data-price="60"></td>
+                        </tr>
+                        <tr>
+                            <td>Сыр</td>
+                            <td>200 р</td>
+                            <td><input type="number" class="quantity" data-price="200"></td>
+                        </tr>
+                        <tr>
+                            <td>Колбаса</td>
+                            <td>250 р</td>
+                            <td><input type="number" class="quantity" data-price="250"></td>
+                        </tr>
+                        <tr>
+                            <td>Сок</td>
+                            <td>80 р</td>
+                            <td><input type="number" class="quantity" data-price="80"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+                <button onclick="calculateTotal()">ОК</button>
+
+                <div id="result"></div>
+            </div>
+        </main>
+        <footer>
+            &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
+        </footer>
+    </body>
+</html>
