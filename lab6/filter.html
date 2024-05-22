@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Чернышов Марк Сергеевич. Фильтр товаров</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png">
+        <link rel="shortcut icon" href="../favicon-32x32.png">
+        <script>
+            function filter() {
+                let color = document.getElementById('wear-color').value;
+                let type = document.getElementById('wear-type').value;
+                let wear = document.getElementById('wear');
+
+                if(color == 'Красный' && type == 'Футболка') {
+                    wear.src = 'red_shirt.jpg';
+                }
+                else if(color =='Красный' && type == 'Поло') {
+                    wear.src = 'red_polo.jpg';
+                }
+                else if(color =='Красный' && type == 'Майка') {
+                    wear.src = 'red_mayka.jpg';
+                }
+                else if(color =='Белый' && type == 'Футболка') {
+                    wear.src = 'white_shirt.jpg';
+                }
+                else if(color =='Белый' && type == 'Поло') {
+                    wear.src = 'white_polo.jpg';
+                }
+                else if(color =='Белый' && type == 'Майка') {
+                    wear.src = 'white_mayka.jpg';
+                }
+                else if(color =='Черный' && type == 'Футболка') {
+                    wear.src = 'black_shirt.jpg';
+                }
+                else if(color =='Черный' && type == 'Поло') {
+                    wear.src = 'black_polo.jpg';
+                }
+                else {
+                    wear.src = 'black_mayka.jpg';
+                }
+            }
+        </script>
+        <style>
+            .image{
+                height: 400px; 
+                width: 400px; 
+                margin-top: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 6
+        </header>
+        <main>
+            <div>
+                Цвет одежды:
+                <select id="wear-color">
+                    <option>Красный</option>
+                    <option>Белый</option>
+                    <option>Черный</option>
+                </select><br>
+
+                Тип одежды:
+                <select id="wear-type">
+                    <option>Футболка</option>
+                    <option>Поло</option>
+                    <option>Майка</option>
+                </select><br>
+                <button onclick="filter()" style="position: absolute;">ОК</button>
+                
+                <img class="image" id="wear">
+            </div>
+        </main>
+        <footer>
+            &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
+        </footer>
+    </body>
+</html>
