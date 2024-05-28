@@ -21,6 +21,24 @@
 
                 document.querySelector('main').appendChild(newBlock);
             }
+            function addNewBlocks() {
+                let input = document.getElementById('numberOfBlocks')
+                let a = parseInt(input.value);
+                let main = document.querySelector('main'); 
+                for(let i = 0; i<a; i++) {
+                    let newBlock = document.createElement('div');
+                    newBlock.style.backgroundColor = 'red';
+                    newBlock.style.color = 'light   green';
+                    newBlock.style.height = '70px';
+                    newBlock.style.width = `${100 + i * 10}px`;
+                    newBlock.style.margin = '25px auto';
+                    newBlock.style.display = 'block';
+                    newBlock.style.border = '5px dashed yellow';
+                    newBlock.innerHTML = `Блок № ${i+1}: 2*${i}<sup>2</sup> = ${2 * i**2}`;
+
+                    main.appendChild(newBlock);
+                }
+            }
         </script>
     </head>
     <body>
@@ -28,7 +46,9 @@
             НГТУ, ФБ, Лабораторная работа 7
         </header>
         <main>
-            <button onclick="addNewBlock()" style="position: absolute;">Добавить блок</button>
+            <button onclick="addNewBlock()" style="position: static;">Добавить блок</button>
+            <button onclick="addNewBlocks()" style="position: static; left: 150px;">Добавить блоки</button>
+            <input type="number" id="numberOfBlocks" style=" position: static;">
         </main>
         <footer>
             &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
