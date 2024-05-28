@@ -42,7 +42,7 @@
             }
             function add20_50() {
                 let main = document.querySelector('main');
-                for(let i = 20; i<=50; i+=2.5){
+                for(let i = 20; i<=50; i+=2.5) {
                     let newBlock = document.createElement('div');
                     newBlock.style.width = '80px';
                     newBlock.style.height = '60px';
@@ -60,6 +60,28 @@
                     main.appendChild(newBlock);
                 }
             }
+            function add10_80() {
+                let main = document.querySelector('main');
+                for(let i = 10; i>=-80; i-=3) {
+                    let newBlock = document.createElement('div');
+                    newBlock.style.borderRadius = '50%';
+                    newBlock.style.display = 'inline-block';
+                    newBlock.style.backgroundColor = 'lightblue';
+                    newBlock.style.height = '30px';
+                    newBlock.style.width = '30px';
+                    newBlock.style.margin = '5px';
+                    newBlock.style.textAlign = 'center';
+                    newBlock.style.padding = '5px';
+                    newBlock.style.top = '10px';
+                    newBlock.style.fontSize = '17pt';
+                    newBlock.style.color = 'blue';
+                    newBlock.style.border = '3px dashed orange';
+
+                    newBlock.innerHTML = `${i}`;
+
+                    main.appendChild(newBlock);
+                }
+            }
         </script>
     </head>
     <body>
@@ -71,6 +93,7 @@
             <button onclick="addNewBlocks()" style="position: static; left: 150px;">Добавить блоки</button>
             <input type="number" id="numberOfBlocks" style=" position: static;">
             <button onclick="add20_50()">20 => 50</button>
+            <button onclick="add10_80()">10 => -80</button>
         </main>
         <footer>
             &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
