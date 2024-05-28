@@ -33,8 +33,29 @@
                     newBlock.style.width = `${100 + i * 10}px`;
                     newBlock.style.margin = '25px auto';
                     newBlock.style.display = 'block';
+                    newBlock.style.textAlign = 'center';
                     newBlock.style.border = '5px dashed yellow';
                     newBlock.innerHTML = `Блок № ${i+1}: 2*${i}<sup>2</sup> = ${2 * i**2}`;
+
+                    main.appendChild(newBlock);
+                }
+            }
+            function add20_50() {
+                let main = document.querySelector('main');
+                for(let i = 20; i<=50; i+=2.5){
+                    let newBlock = document.createElement('div');
+                    newBlock.style.width = '80px';
+                    newBlock.style.height = '60px';
+                    newBlock.style.padding = '15px';
+                    newBlock.style.margin = '15px auto';
+                    newBlock.style.backgroundColor = 'purple';
+                    newBlock.style.color = 'yellow';
+                    newBlock.style.display = 'block';
+                    newBlock.style.border = '1px solid';
+                    newBlock.style.textAlign = 'center';
+                    newBlock.style.fontSize = '30pt';
+
+                    newBlock.innerHTML = `${i}`;
 
                     main.appendChild(newBlock);
                 }
@@ -49,6 +70,7 @@
             <button onclick="addNewBlock()" style="position: static;">Добавить блок</button>
             <button onclick="addNewBlocks()" style="position: static; left: 150px;">Добавить блоки</button>
             <input type="number" id="numberOfBlocks" style=" position: static;">
+            <button onclick="add20_50()">20 => 50</button>
         </main>
         <footer>
             &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
