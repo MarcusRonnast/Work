@@ -101,6 +101,32 @@
                     main.appendChild(newBlock);   
                 }
             }
+            function addCircles() {
+                let input = document.getElementById('numberOfCircles')
+                let a = parseInt(input.value);
+                let main = document.querySelector('main');
+                for(i = 0; i < a; i++) {
+                    let circle = document.createElement("div");
+                    circle.style.width = '40px';
+                    circle.style.height = '40px';
+                    circle.style.borderRadius = '50%';
+                    circle.style.color = 'black';
+                    circle.style.display = 'inline-block';
+                    circle.style.textAlign = 'center';
+                    circle.style.margin = '5px';
+                    circle.style.padding = '1px';
+
+                    if ((a - i) % 2 == 1) {
+                    circle.style.backgroundColor = 'red';
+                    } 
+                    else {
+                        circle.style.backgroundColor = 'green';
+                    }
+
+                    circle.textContent = `${a - i}`;
+                    main.appendChild(circle);
+                }
+            }
         </script>
     </head>
     <body>
@@ -114,6 +140,8 @@
             <button onclick="add20_50()">20 => 50</button>
             <button onclick="add10_80()">10 => -80</button>
             <button onclick="addOpacity()">Прозрачность</button>
+            <button onclick="addCircles()">Цветные круги</button>
+            <input type="number" id="numberOfCircles">
         </main>
         <footer>
             &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
