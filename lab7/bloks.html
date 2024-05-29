@@ -82,6 +82,25 @@
                     main.appendChild(newBlock);
                 }
             }
+            function addOpacity() {
+                let main = document.querySelector('main');
+                for(i = 0; i <= 100; i+=10) {
+                    let newBlock = document.createElement('div');
+                    newBlock.style.opacity = `${i}%`;
+                    newBlock.style.width = '80px';
+                    newBlock.style.height = '60px';
+                    newBlock.style.display = 'block';
+                    newBlock.style.margin = '5px auto';
+                    newBlock.style.border = '4px solid black';
+                    newBlock.style.backgroundColor = 'white';
+                    newBlock.style.textAlign = 'center';
+                    newBlock.style.fontSize = '20pt';                    
+
+                    newBlock.innerHTML = `${i / 10}`;
+
+                    main.appendChild(newBlock);   
+                }
+            }
         </script>
     </head>
     <body>
@@ -94,6 +113,7 @@
             <input type="number" id="numberOfBlocks" style=" position: static;">
             <button onclick="add20_50()">20 => 50</button>
             <button onclick="add10_80()">10 => -80</button>
+            <button onclick="addOpacity()">Прозрачность</button>
         </main>
         <footer>
             &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
