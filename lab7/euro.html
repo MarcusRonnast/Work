@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Чернышов Марк Сергеевич. Курс евро</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png">
+        <link rel="shortcut icon" href="../favicon-32x32.png">
+        <style>
+            #exchangeInfo {
+                font-size: 1.2em;
+                border: 1px solid #ccc;
+                padding: 10px;
+                margin-top: 20px;
+                height: 200px;
+                width: 300px;
+                color: blueviolet;
+                background-color: darkorange;
+            }
+        </style>
+            <script>
+                function getEuroExchangeRate() {
+            const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+            fetch(url)
+                .then(response => response.json())
+                .then(json => {
+                    const date = new Date(json.Date);
+                    const prevDate = new Date(json.PreviousDate);
+                    const currentRate = json.Valute.EUR.Value;
+                    const prevRate = json.Valute.EUR.Previous;
+                    const diff = currentRate - prevRate;
+                    const message = `Текущий курс евро: ${currentRate.toFixed(2)}<br>
+                                      Дата запроса: ${date.toLocaleDateString()}<br>
+                                      Курс за предыдущую дату: ${prevRate.toFixed(2)}<br>
+                                      Разница: ${diff.toFixed(2)}<br>
+                                      ${diff > 0 ? 'Курс евро поднялся' : 'Курс евро опустился'}`;
+                    document.getElementById('exchangeInfo').innerHTML = message;
+                })
+                .catch(error => {
+                    console.error('Ошибка при получении курса евро:', error);
+                });
+        }
+            </script>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 7
+        </header>
+        <main>
+            <button onclick="getEuroExchangeRate()">Получить курс евро</button>
+            <div id="exchangeInfo"></div>
+        </main>
+        <footer>
+            &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
+        </footer>
+    </body>
+</html>
