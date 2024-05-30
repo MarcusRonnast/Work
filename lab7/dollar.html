@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Чернышов Марк Сергеевич. Курс доллара</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png">
+        <link rel="shortcut icon" href="../favicon-32x32.png">
+        <script>
+            function showExchange() {
+                const exchange = [
+                    90.6537, 90.4082, 90.6537, 90.4082, 90.1887, 
+                    90.2486, 89.7026, 88.6852, 88.4375, 89.2589
+                ];
+                let table = document.getElementById('dollar-table');
+                for (let i = 0; i < exchange.length; i++) {
+                    let tr = document.createElement('tr');
+                    let td = document.createElement('td');
+                    td.innerText = exchange[i];
+                    tr.appendChild(td);
+                    table.appendChild(tr);
+                }
+                let sum = 0;
+                for (let i = 0; i < exchange.length; i++) {
+                    sum += exchange[i];
+                }
+                let average = sum / exchange.length;
+                average = average.toFixed(2);
+    
+                let detailDiv = document.getElementById('detail');
+                detailDiv.innerText = `Средний курс доллара: ${average}`;
+
+                let button = document.getElementById('exchangeButton');
+                button.style.display = 'none';
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 7
+        </header>
+        <main>
+            <button onclick="showExchange()" id="exchangeButton">Курс доллара</button>
+            <table border="1" id="dollar-table"></table>
+            <div id="detail"></div>
+        </main>
+        <footer>
+            &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
+        </footer>
+    </body>
+</html>
