@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Чернышов Марк Сергеевич. Котировки акций компании ТГК-2</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png">
+        <link rel="shortcut icon" href="../favicon-32x32.png">
+        <script>
+            function showShares() {
+                const shares = [
+                0.0132, 0.0132, 0.0130, 0.0125, 0.0127, 
+                0.0124, 0.0118, 0.0109, 0.0114, 0.0114
+                ];
+                const date = [
+                "16.05.2024", "17.05.2024", "20.05.2024", "21.05.2024", "22.05.2024", 
+                "23.05.2024", "24.05.2024", "27.05.2024", "28.05.2024", "29.05.2024"
+                ];
+                let table = document.getElementById('shares-table');
+                table.innerHTML = '';
+
+                let thead = document.createElement('thead');
+                let th1 = document.createElement('th');
+                th1.textContent = 'Дата';
+                let th2 = document.createElement('th');
+                th2.textContent = 'Цена акций';
+                let th3 = document.createElement('th');
+                th3.textContent = 'Разница';
+                thead.appendChild(th1);
+                thead.appendChild(th2);
+                thead.appendChild(th3);
+                table.appendChild(thead);
+
+                let tbody = document.createElement('tbody');
+                for (let i = 0; i < shares.length; i++) {
+                    let tr = document.createElement('tr');
+                    let td1 = document.createElement('td');
+                    td1.textContent = date[i];
+                    let td2 = document.createElement('td');
+                    td2.textContent = shares[i].toFixed(4);
+                    let td3 = document.createElement('td');
+                    if (i > 0) {
+                        td3.textContent = (shares[i] - shares[i-1]).toFixed(4);
+                    } else {
+                        td3.textContent = '-';
+                    }
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    tbody.appendChild(tr);
+                }
+                table.appendChild(tbody);
+
+                let sum = 0;
+                let min = shares[0];
+                let max = shares[0];
+                for (let i = 0; i < shares.length; i++) {
+                    sum += shares[i];
+                    if (shares[i] < min) {
+                        min = shares[i];
+                    }
+                    if (shares[i] > max) {
+                        max = shares[i];
+                    }
+                }
+                let average = sum / shares.length;
+
+                let detailDiv = document.getElementById('detail');
+                detailDiv.innerHTML = `
+                    <p>Среднее значение стоимости акции: ${average.toFixed(4)}</p>
+                    <p>Максимальное значение стоимости акции: ${max.toFixed(4)}</p>
+                    <p>Минимальное значение стоимости акции: ${min.toFixed(4)}</p>
+                `;
+                let button = document.getElementById('sharesButton');
+                button.style.display = 'none';
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 7
+        </header>
+        <main>
+            <button onclick="showShares()" id="sharesButton">Курс акций ТГК-2</button>
+            <table border="1" id="shares-table"></table>
+            <div id="detail"></div>
+        </main>
+        <footer>
+            &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
+        </footer>
+    </body>
+</html>
