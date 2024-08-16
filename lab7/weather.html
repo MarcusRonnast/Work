@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Чернышов Марк Сергеевич. Погода в Новосибирске</title>
+      <link rel="stylesheet" href="../main.css">
+      <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="../favicon-16x16.png">
+      <link rel="shortcut icon" href="../favicon-32x32.png">
+      <style>
+          #weatherInfo {
+              font-size: 1.2em;
+              border: 1px solid #ccc;
+              padding: 10px;
+              margin-top: 20px;
+              height: 200px;
+              width: 300px;
+              color: blueviolet;
+              background-color: darkorange;
+          }
+      </style>
+      <script>
+        // Функция для получения температуры на основе времени
+        function getTemperatureForTime(timeArray, temperatureArray, targetTime) {
+            // Поиск индекса времени в массиве
+            const index = timeArray.findIndex(time => time.includes(targetTime));
+
+            // Возвращаем соответствующую температуру
+            return index !== -1 ? temperatureArray[index] : 'N/A';
+        }
+
+        // Выполнение запроса к Open-Meteo API
+        fetch('https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok')
+            .then(response => response.json())
+            .then(data => {
+                // Получаем массивы времени и температуры
+                const times = data.hourly.time;
+                const temperatures = data.hourly.temperature_2m;
+
+                // Установка значений на странице
+                document.getElementById('temp-8am').textContent = getTemperatureForTime(times, temperatures, "08:00");
+                document.getElementById('temp-12pm').textContent = getTemperatureForTime(times, temperatures, "12:00");
+                document.getElementById('temp-8pm').textContent = getTemperatureForTime(times, temperatures, "20:00");
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                document.getElementById('temp-8am').textContent = 'Error';
+                document.getElementById('temp-12pm').textContent = 'Error';
+                document.getElementById('temp-8pm').textContent = 'Error';
+            });
+    </script>
+  </head>
+  <body>
+      <header>
+          НГТУ, ФБ, Лабораторная работа 7
+      </header>
+      <main>
+          <div id="weatherInfo">
+            <div class="weather-info">
+                <strong>8:00 AM:</strong> <span id="temp-8am"></span>°C
+            </div>
+            
+            <div class="weather-info">
+                <strong>12:00 PM:</strong> <span id="temp-12pm"></span>°C
+            </div>
+            
+            <div class="weather-info">
+                <strong>8:00 PM:</strong> <span id="temp-8pm"></span>°C
+            </div>
+          </div>
+      </main>
+      <footer>
+          &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
+      </footer>
+  </body>
+</html>
