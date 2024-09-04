@@ -11,10 +11,9 @@
         <link rel="shortcut icon" href="../favicon-32x32.png">
         <script src="lab8.js"></script>
         <style>
-            .date-container {
+           
+            .date-container{
                 margin-bottom: 10px;
-            }
-            div{
                 background-color:aquamarine;
                 height: 75px;
                 width: 450px;
@@ -22,14 +21,35 @@
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                 color: red;
             }
+            .second{
+                display: flex;
+                left: 100px;
+            }
+            .third{
+                margin-top: 10px;
+                margin-bottom: 50px;
+                padding: 5px;
+                background-color: aqua;
+                color: red;
+                width: 250px;
+                font-weight: bold;
+            }
+
         </style>
     </head>
-    <body onload="showDate()">
+    <body onload="showDate(); todayDate()">
         <header>
             НГТУ, ФБ, Лабораторная работа 8
         </header>
         <main>
             <div id="current-date"></div>
+            <div class="second">
+                <div id="year"></div>
+                <div id="month"></div>
+                <div id="date"></div>
+                <div id="dayOfWeek"></div>
+            </div>
+            <div id="output" class="third"></div>
         </main>
         <footer>
             &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
