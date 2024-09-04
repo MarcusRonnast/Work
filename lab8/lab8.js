@@ -41,3 +41,18 @@ function todayDate() {
 
     document.getElementById("output").innerHTML = result;
 }
+function getDayOfWeek() {
+    const day = document.getElementById('some_day').value;
+    const month = document.getElementById('some_month').value;
+    const year = document.getElementById('some_year').value;
+
+    if (day && month && year) {
+        const date = new Date(year, month - 1, day);
+        const daysOfWeek = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+        const dayOfWeek = daysOfWeek[date.getDay()];
+        document.getElementById('result').innerText = `День недели: ${dayOfWeek}`;
+    } 
+    else {
+        document.getElementById('result').innerText = 'Пожалуйста, заполните все поля.';
+    }
+}
