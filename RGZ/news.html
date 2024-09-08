@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Новости</title>
+        <link rel="stylesheet" href="main.css">
+        <style>
+             .first{
+                padding: 10px 20px;
+                background-color: rgb(64, 64, 179);
+            }
+            .news-card {
+                border: 1px solid #ccc;
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+            .news-card h3 {
+                margin-top: 0;
+            }
+            .news-card p {
+                margin-bottom: 5px;
+            }
+            .news-card button {
+                display: block;
+                margin-top: 10px;
+            }
+            .news-full {
+                display: none;
+            }
+        </style>
+        
+        <script>
+            function showFullNews(button) {
+                var newsFullElement = button.parentNode.getElementsByClassName("news-full")[0];
+                var hideButton = button.parentNode.getElementsByClassName("hide-button")[0];
+                newsFullElement.style.display = "block";
+                button.style.display = "none";
+                hideButton.style.display = "block";
+            }
+        
+            function hideNews(button) {
+                var newsFullElement = button.parentNode.getElementsByClassName("news-full")[0];
+                var showButton = button.parentNode.getElementsByClassName("show-button")[0];
+                newsFullElement.style.display = "none";
+                button.style.display = "none";
+                showButton.style.display = "block";
+            }
+        </script>
+    </head>
+    <body>
+        <header style="display: flex;">
+            <a href="company.html" style="margin-left:270px; border: 1px solid black; margin-top:50px; color: inherit; text-decoration: none;">
+                <div class="first">О компании</div>
+            </a>
+            <a href="news.html" style="border: 1px solid black; margin-top:50px; color: inherit; text-decoration: none;">
+                <div class="first">Новости</div>
+            </a>
+            <a href="exchange.html" style="border: 1px solid black; margin-top:50px; color: inherit; text-decoration: none;">
+                <div class="first">Курс валют</div>
+            </a>
+            <a href="contacts.html" style="border: 1px solid black; margin-top:50px; color: inherit; text-decoration: none;">
+                <div class="first">Контактные данные</div>
+            </a>
+            <a href="video.html" style="border: 1px solid black; margin-top:50px; color: inherit; text-decoration: none;">
+                <div class="first">Видео</div>
+            </a>
+        </header>
+        <main>
+            <h1>Новости компании</h1>
+
+            <div class="news-container">
+                <!-- Новость 1 -->
+                <div class="news-card">
+                    <h3>О режиме работы НКО АО НРД и Платежной системы НРД в период майских праздников 2024 года</h3>
+                    <p>08.04.2024</p>
+                    <p>
+                        Уважаемые клиенты доводим до вашего сведения информацию о режиме работы НКО АО НРД и Платежной системы
+                        НРД в период майских праздников 2024 года.
+                    </p>
+                    <div class="news-full">
+                        <p>
+                            1. <b>1 и 9 мая 2024 года</b> являются нерабочими праздничными днями в Российской Федерации, в которые обслуживание
+                            клиентов НРД (включая участников Платежной системы НРД) не производится.<br>
+                            2. <b>29, 30 апреля и 10 мая 2024 года</b> НРД будет осуществлять депозитарное и банковское обслуживание
+                            клиентов, включая осуществление переводов денежных средств в Платежной системе НРД, с учетом особенностей,
+                            установленных Банком России, а также регламентов работы банков-корреспондентов.
+                        </p>
+                    </div>
+                    <button class="show-button" onclick="showFullNews(this)">Подробнее</button>
+                    <button class="hide-button" onclick="hideNews(this)" style="display: none;">Скрыть</button>
+                </div>
+            </div>
+            <div class="news-container">
+                <!-- Новость 2 -->
+                <div class="news-card">
+                    <h3>Рекомендации НАУФОР для инвесторов, призванных на военную службу в рамках частичной мобилизации.</h3>
+                    <p>20.10.2022</p>
+                    <p>
+                        Уважаемые клиенты!<br>
+                        Доводим до Вашего сведения рекомендации НАУФОР для инвесторов, призванных на военную службу в рамках частичной 
+                        мобилизации.
+                    </p>
+                    <div class="news-full">
+                        <p>
+                            Материалы доступны по <a href=https://www.ikstandart.ru/upload/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2/%D0%BF%D1%80%D0%BE%D1%87%D0%B8%D0%B5/Recomend_201022.pdf">ссылке</a>
+                        </p>
+                    </div>
+                    <button class="show-button" onclick="showFullNews(this)">Подробнее</button>
+                    <button class="hide-button" onclick="hideNews(this)" style="display: none;">Скрыть</button>
+                </div>
+            </div>
+            <div class="news-container">
+                <!-- Новость 3 -->
+                <div class="news-card">
+                    <h3>Изменен размер комиссии на покупку иностранной валюты</h3>
+                    <p>04.03.2022</p>
+                    <p>
+                        Уважаемые клиенты!<br>
+                        Уведомляем Вас, что с 04.03.2022 г. с 9:00 в соответствии с предписанием Банка России...
+                    </p>
+                    <div class="news-full">
+                        <p>
+                            Комиссионное вознаграждение брокера ООО «ИК «Стандарт» при исполнении поручений клиентов – физических и 
+                            юридических лиц на покупку на организованных торгахПАО «Московская биржа ММВБ-РТС» иностранной валюты 
+                            (долларов США, евро и фунтов стерлингов) устанавливается в размере 12% от суммы сделки, независимо от 
+                            размера суммарного оборота сделки. С 04.03.2022 вводится в действие новая редакция Тарифов на брокерское 
+                            обслуживание ООО «ИК «Стандарт». Ознакомиться с Тарифами можно в разделе «Услуги брокера».
+                        </p>
+                    </div>
+                    <button class="show-button" onclick="showFullNews(this)">Подробнее</button>
+                    <button class="hide-button" onclick="hideNews(this)" style="display: none;">Скрыть</button>
+                </div>
+             </div>
+             <div class="news-container">   
+                <!-- Новость 4 -->
+                <div class="news-card">
+                    <h3>Изменение размера комиссии на покупку иностранной валюты</h3>
+                    <p>03.03.2022</p>
+                    <p>
+                        Уважаемые клиенты! <br>
+                        Уведомляем Вас, что 03.03.2022 г. с 9:00 в соответствии с предписанием Банка России...
+                    </p>
+                    <div class="news-full">
+                        <p>
+                            Комиссионное вознаграждение брокера ООО «ИК «Стандарт» на приобретение физическими лицами иностранной 
+                            валюты (долларов США, евро и фунтов стерлингов) устанавливается в размере 30% от суммы сделки, независимо 
+                            от размера суммарного оборота сделки. 03.03.2022 вводится в действие новая редакция Тарифов на брокерское 
+                            обслуживание ООО «ИК «Стандарт». Ознакомиться с Тарифами можно в разделе «Услуги брокера».
+                        </p>
+                    </div>
+                    <button class="show-button" onclick="showFullNews(this)">Подробнее</button>
+                    <button class="hide-button" onclick="hideNews(this)" style="display: none;">Скрыть</button>
+                </div>
+             </div>
+                <div class="news-container">  
+                    <!-- Новость 5 -->
+                    <div class="news-card">
+                        <h3>Банк России вводит ограничения</h3>
+                        <p>28.02.2022</p>
+                        <p>
+                            Уважаемые клиенты! <br>
+                            Уведомляем Вас о том, что Банк России в связи со сложившейся кризисной ситуацией на финансовом рынке 
+                            и в целях обеспечения защиты прав и законных интересов инвесторов на финансовых рынках с 28.02.2022 и 
+                            до особого указания ввел ограничения...
+                        </p>
+                        <div class="news-full">
+                            <p>
+                                Ограничения введены на: <br>
+                                <p>
+                                    - на операции по выставлению заявок на покупку иностранной валюты на торгах организаторов торговли, 
+                                    приводящие к возникновению (либо увеличению) в абсолютном выражении отрицательного значения 
+                                    плановой позиции по счету (счетам) клиента.
+                                </p> 
+                                <p>
+                                    - на исполнение всех поручений клиентов – иностранных юридических и физических лиц на продажу ценных бумаг.
+                                </p>
+                                <p>
+                                    - на исполнение всех поручений клиентов – иностранных юридических и физических лиц по списанию 
+                                    ценных бумаг российских эмитентов со счетов депо, а также передачу выплат по ценным бумагам 
+                                    российских эмитентов иностранным физическим и юридическим лицам.
+                                </p>   
+                            </p>
+                        </div>
+                        <button class="show-button" onclick="showFullNews(this)">Подробнее</button>
+                        <button class="hide-button" onclick="hideNews(this)" style="display: none;">Скрыть</button>
+                    </div>
+                </div>
+                <div class="news-container">        
+                    <!-- Новость 6 -->
+                    <div class="news-card">
+                        <h3>Банк России вводит запрет коротких продаж на российском финансовом рынке</h3>
+                        <p>24.02.2022</p>
+                        <p>
+                            Банк России вводит запрет коротких продаж на российском финансовом рынке
+                        </p>
+                        <div class="news-full">
+                            <p>
+                                Подробности на странице <a href="http://www.cbr.ru/press/event/?id=12712">ЦБ</a>
+                            </p>
+                        </div>
+                        <button class="show-button" onclick="showFullNews(this)">Подробнее</button>
+                        <button class="hide-button" onclick="hideNews(this)" style="display: none;">Скрыть</button>
+                    </div>
+                </div> 
+                <div class="news-container">      
+                    <!-- Новость 7 -->
+                    <div class="news-card">
+                        <h3>Информация о работе в период с 30 октября по 7 ноября 2021 года</h3>
+                        <p>25.10.2021</p>
+                        <p>
+                            Уважаемые Клиенты! <br>
+                            Сообщаем вам о режиме проведения торгов на фондовом, валютном и срочном рынках Московской Биржи, 
+                            а также о работе подразделений ООО «ИК «Стандарт» в период общероссийских нерабочих дней с 30 октября 
+                            по 7 ноября 2021 года.
+                        </p>
+                        <div class="news-full">
+                            <p>
+                                В период с 1 ноября по 3 ноября 2021 г. ООО «ИК «Стандарт» работает в режиме дистанционного обслуживания. 
+                                Все поручения и заявки вы можете направлять по каналам связи, предусмотренными договорами обслуживания 
+                                клиентов на финансовых рынках. Период с 4 ноября по 7 ноября 2021 г. являются нерабочими днями. <br>
+                                Расписание торгов на Московской бирже:  <a href="https://www.moex.com/n36973/?nt=106">https://www.moex.com/n36973/?nt=106</a> <br>
+                                Платежная система Банка России 1, 2, 3 и 5 ноября 2021 года будет работать в штатном режиме.
+                            </p>
+                        </div>
+                        <button class="show-button" onclick="showFullNews(this)">Подробнее</button>
+                        <button class="hide-button" onclick="hideNews(this)" style="display: none;">Скрыть</button>
+                    </div>
+                </div>
+                <div class="news-container">
+                    <!-- Новость 8 -->
+                    <div class="news-card">
+                        <h3>Банк России утвердил порядок тестирования неквалифицированных инвесторов</h3>
+                        <p>30.09.2021</p>
+                        <p>
+                            В связи с изменениями в Федеральном законе от 22.04.1996 № 39-ФЗ «О рынке ценных бумаг», чтобы получить 
+                            доступ к заключению ряда сделок, физические лица, являющиеся неквалифицированными инвесторами, должны 
+                            пройти тестирование, подтверждающее их знания о соответствующем виде сделок. Обязательным тестирование 
+                            становится <b>с 1 октября 2021</b>; по иностранным неспонсируемым ETF — с 1 апреля 2022 года, когда они будут 
+                            допущены на российский рынок.
+                        </p>
+                        <div class="news-full">
+                            <p>
+                                Тестирование разделено на два блока. Первый — «Самооценка» — включает три вопроса, направленных 
+                                на определение опыта инвестора и источника его знаний. Ответы на эти вопросы не влияют на результаты 
+                                тестирования, но помогут инвестору лучше оценить свою готовность к совершению сделок. <br>
+                                Второй блок — «Знание» — состоит из четырех вопросов об особенностях и рисках инструментов, 
+                                входящих в одну из групп, для которых закон предусматривает обязательное тестирование. <br>
+                                Тестирование не потребуется, если до 1 октября 2021 года клиент заключил хотя бы один соответствующий 
+                                договор или совершил хотя бы одну такую же сделку, так как считается, что инвестор с таким опытом 
+                                обладает необходимыми знаниями и может принимать на себя высокие риски. <br>
+                                Пройти тестирование, вы можете в офисе ООО «ИК «Стандарт» по адресу: <br>
+                                Санкт-Петербург, ул. Дивенская, дом 3, литер Е, помещение 23 <br> 
+                                В часы работы офиса с 9.00 до 18.00, кроме выходных и праздничных дней. 
+                            </p>
+                        </div>
+                        <button class="show-button" onclick="showFullNews(this)">Подробнее</button>
+                        <button class="hide-button" onclick="hideNews(this)" style="display: none;">Скрыть</button>
+                    </div>
+                </div>
+                <div class="news-container">   
+                    <!-- Новость 9 -->
+                    <div class="news-card">
+                        <h3>Информация о работе в период с 4 мая по 7 мая 2021 года</h3>
+                        <p>28.04.2021</p>
+                        <p>
+                            <b>Уважаемые Клиенты!</b> <br>
+                            Российской Федерации нерабочих дней в мае 2021 г.» сообщаем, что даты с 4 по 7 мая являются 
+                            нерабочими днями и офис ООО «ИК «Стандарт» будет закрыт для посещения.
+                        </p>
+                        <div class="news-full">
+                            <p>
+                                Обращаем Ваше внимание, что обязательства по финансовым сделкам, срок исполнения которых 
+                                приходится на нерабочие дни с 4 по 7 мая 2021 года, будут исполняться должниками в срок, 
+                                предусмотренный договором. <br>
+                                Расписание торгов на Московской бирже <a href="https://www.moex.com/n33785/?nt=106">в период майских праздников.</a> <br>
+                                Платежная система Банка России в период с 4 по 7 мая будет работать по <a href="http://www.cbr.ru/press/pr/?file=27042021_115000PR2021-04-27T11_38_08.htm">графику</a>.
+                            </p>
+                        </div>
+                        <button class="show-button" onclick="showFullNews(this)">Подробнее</button>
+                        <button class="hide-button" onclick="hideNews(this)" style="display: none;">Скрыть</button>
+                    </div>
+                </div>
+                <div class="news-container">
+                    <!-- Новость 10 -->
+                    <div class="news-card">
+                        <h3>Об изменении адреса ООО "ИК "Стандарт"</h3>
+                        <p>08.09.2020</p>
+                        <p>
+                            Уважаемые Клиенты, с 08.09.2020г. изменился адрес ООО «ИК «Стандарт».
+                        </p>
+                        <div class="news-full">
+                            <p>
+                                Обслуживание клиентов теперь будет осуществляться по адресу: <br>
+                                Санкт-Петербург, ул. Дивенская, дом 3, литер Е, помещение 23.
+                            </p>
+                        </div>
+                        <button class="show-button" onclick="showFullNews(this)">Подробнее</button>
+                        <button class="hide-button" onclick="hideNews(this)" style="display: none;">Скрыть</button>
+                    </div>
+                </div>
+        </main>
+        
+    </body>
+</html>
