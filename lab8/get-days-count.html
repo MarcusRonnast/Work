@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Число дней с даты рождения</title>
+        <link rel="stylesheet" href="../main.css">
+            <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+            <link rel="shortcut icon" href="../favicon-16x16.png">
+            <link rel="shortcut icon" href="../favicon-32x32.png">
+            <script src="get-days-count.js"></script>
+            <style>
+                .frame {
+                    border: 3px solid darkorange;
+                    border-top-right-radius: 80px;
+                    border-bottom-left-radius: 70px;
+                    background-color: rgb(24, 92, 92);
+                    padding: 30px;
+                    width: fit-content;
+                    margin: auto;
+                    text-align: justify;
+                    line-height: 1.8;
+                }
+                button {
+                    padding: 5px 10px;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+                label {
+                    display: block;
+                    margin-bottom: 5px;
+                }
+                input {
+                    padding: 5px;
+                    font-size: 16px;
+                }
+                #count-days {
+                    font-size: 23px;
+                } 
+            </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 8
+        </header>
+        <main>
+            <div class="frame">
+                <div>
+                    <label for="birthday">Дата рождения: <input type="date" id="birthday"></label>
+                </div>
+                <div>
+                    <button onclick="showDaysCount()">Показать число дней</button>
+                </div>
+                <div id="count-days"></div>
+                <button onclick="clearInput()">Очистить поля ввода и выводы</button>
+            </div>
+        </main>
+        <footer>
+            &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
+        </footer>
+    </body>
+</html>
