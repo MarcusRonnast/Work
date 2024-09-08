@@ -34,7 +34,27 @@
                 z-index: 1;
                 border: 3px solid orange;
             }
-            
+            .clock {
+                width: 300px;
+                height: 300px;
+                border: 10px solid pink;
+                border-radius: 50%;
+                position: relative;
+                margin: 50px auto;
+                top: 50%;
+                background-color: darkorange;
+            }
+            #second-hand {
+                width: 50%;
+                height: 6px;
+                background: darkcyan;
+                z-index: 2;
+                position: absolute;
+                top: 50%;
+                transform-origin: 100%;
+                transform: rotate(90deg);
+                transition: transform 0.5s ease-in-out;
+            }
         </style>
     </head>
     <body onload="showTime()">
@@ -44,6 +64,8 @@
         </header>
         <main>
             <div id="seconds"></div>
+            <div class="clock">
+            <div id="second-hand"></div>
         </main>
         <footer>
             &copy; Чернышов Марк, ФБИ-22, 2 курс, 2024
