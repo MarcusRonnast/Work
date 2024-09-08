@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Курс валют</title>
+        <link rel="stylesheet" href="main.css">
+        <style>
+             .first{
+                padding: 10px 20px;
+                background-color: rgb(64, 64, 179);
+            }
+            .container {
+                background-color: white;
+                padding: 40px;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+
+            h1, h2 {
+                margin-top: 0;
+            }
+
+            .input-group {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .input-group label {
+                margin-right: 10px;
+            }
+
+            .input-group input {
+                padding: 8px 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 16px;
+                width: 200px;
+            }
+
+        </style>
+        <script>
+            // Функция для получения курса юаня
+            async function getExchangeRate() {
+                const response = await fetch('https://www.cbr-xml-daily.ru/daily_json.js');
+                const data = await response.json();
+                const yuanRate = data.Valute.CNY.Value;
+                document.getElementById('exchange-rate').textContent = `1 юань = ${yuanRate} рублей`;
+            }
+
+            // Функция для конвертации рублей в юани
+            function convertRubToYuan() {
+                const rubInput = document.getElementById('rub-input');
+                const yuanInput = document.getElementById('yuan-input');
+                const exchangeRate = parseFloat(document.getElementById('exchange-rate').textContent.split(' = ')[1]);
+                const rubles = parseFloat(rubInput.value);
+                yuanInput.value = (rubles / exchangeRate).toFixed(2);
+            }
+
+            // Функция для конвертации юаней в рубли
+            function convertYuanToRub() {
+                const rubInput = document.getElementById('rub-input');
+                const yuanInput = document.getElementById('yuan-input');
+                const exchangeRate = parseFloat(document.getElementById('exchange-rate').textContent.split(' = ')[1]);
+                const yuan = parseFloat(yuanInput.value);
+                rubInput.value = (yuan * exchangeRate).toFixed(2);
+            }
+
+            // Получение курса юаня при загрузке страницы
+            getExchangeRate();
+
+        </script>
+    </head>
+    <body>
+        <header style="display: flex;">
+            <a href="company.html" style="margin-left:270px; border: 1px solid black; margin-top:50px; color: inherit; text-decoration: none;">
+                <div class="first">О компании</div>
+            </a>
+            <a href="news.html" style="border: 1px solid black; margin-top:50px; color: inherit; text-decoration: none;">
+                <div class="first">Новости</div>
+            </a>
+            <a href="exchange.html" style="border: 1px solid black; margin-top:50px; color: inherit; text-decoration: none;">
+                <div class="first">Курс валют</div>
+            </a>
+            <a href="contacts.html" style="border: 1px solid black; margin-top:50px; color: inherit; text-decoration: none;">
+                <div class="first">Контактные данные</div>
+            </a>
+            <a href="video.html" style="border: 1px solid black; margin-top:50px; color: inherit; text-decoration: none;">
+                <div class="first">Видео</div>
+            </a>
+        </header>
+        <main style="height: 300px; margin-top: 25px;">
+            <div class="container">
+                <h1>Конвертер рубль-юань</h1>
+                <div class="exchange-rate">
+                    <h2>Курс юаня на сегодня:</h2>
+                    <p id="exchange-rate"></p>
+                </div>
+                <div class="converter">
+                    <div class="input-group">
+                        <label for="rub-input">Рубли:</label>
+                        <input type="number" id="rub-input" placeholder="Введите сумму в рублях" oninput="convertRubToYuan()">
+                    </div>
+                    <div class="input-group">
+                        <label for="yuan-input">Юани:</label>
+                        <input type="number" id="yuan-input" placeholder="Введите сумму в юанях" oninput="convertYuanToRub()">
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+    </body>
+</html>
