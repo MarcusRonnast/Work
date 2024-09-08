@@ -1,0 +1,21 @@
+
+header{
+    font-size: 18pt;
+    border-radius: 1px;
+    height: 100px;
+    background-color: rgb(64, 64, 179);
+}
+body{
+    margin: 0;
+}
+main{
+    width:1403px;
+    margin: 0 250px 50px 250px;
+    background-color: rgb(196, 240, 240);
+}
+header a{
+    border: 1px solid black; 
+    margin-top:50px; 
+    color: inherit; 
+    text-decoration: none;
+}
